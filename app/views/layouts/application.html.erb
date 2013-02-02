@@ -2,6 +2,11 @@
 <html>
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <%= stylesheet_link_tag 'blueprint/screen', :media => "screen, projection" %>
+    <%= stylesheet_link_tag 'blueprint/print', :media => "print" %>
+
+
+
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag :application %>
 
@@ -9,7 +14,7 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="container">
+    <div id="main">
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
